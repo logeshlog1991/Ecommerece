@@ -60,6 +60,9 @@ body{
 	margin: 0px;
 	line-height: 35px;
 }
+.menubar ul{
+	list-style: none;
+}
 .menubar ul li{
 	display: inline;
 }
@@ -189,4 +192,5 @@ hr{
 #footer_left_bar ul li a{
 	text-decoration: none;
 	color: #A4A4A4;
+	overflow: hidden;
 }

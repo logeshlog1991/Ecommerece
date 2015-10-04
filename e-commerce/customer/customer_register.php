@@ -1,4 +1,3 @@
-
 					<form action="register.php" method="POST" enctype="multipart/form-data">
 						<div id="cart_content">
 							<div id="cart_inside">

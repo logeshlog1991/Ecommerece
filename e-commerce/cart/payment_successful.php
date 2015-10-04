@@ -21,6 +21,18 @@
 								$insert_payment = $conn->query("insert into payments (amount,customer_id,trx_id,payment_date) values ('$amount','$cst_id','$trx_id',now())");
 								if($insert_payment){
 									$insert_orders = $conn->query("insert into orders (p_id,c_id,qty,invoice_no,status,order_date) values ('$pro_id','$cst_id','$qty','$invoice_no','$status',now())");
+									$delete_cart = $conn->query("select c.p_id,c.ip_add,c.qty from cart as c left JOIN orders as d on c.p_id = d.p_id WHERE d.c_id = '$cst_id'");
+									
 								}
 							}
+							if($delete_cart->num_rows>0){
+
+										while($row = $delete_cart->fetch_assoc()){
+											
+											$cartp_id = $row['p_id'];
+											$cartip_add = $row['ip_add'];
+											$cart_qty = $row['qty'];
+										}
+										$delete = $conn->query("delete from cart where p_id = '$cartp_id' and ip_add = '$cartip_add' and qty = '$cart_qty'");
+									}
 						?>	

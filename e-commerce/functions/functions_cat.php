@@ -1,11 +1,10 @@
 <?php
-//getting chategories
-	$query = $conn->query("select * from categories");
-	if($query->num_rows){
-		$cat = array();
-		while($row = $query->fetch_assoc()){
-			$cat[] = $row;
-		}
+$query = $conn->query("select * from categories");
+if($query->num_rows){
+	$cat = array();
+	while($row = $query->fetch_assoc()){
+		$cat[] = $row;
 	}
+}
 
 ?>

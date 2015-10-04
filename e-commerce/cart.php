@@ -6,16 +6,10 @@
 	require 'functions/functions_addCart.php';
 	require 'template/header.php';
 ?>
-		<!-- Nav bar start here -->
-			<?php require 'template/nav.php';?>
-		<!-- Nav bar end here -->
-
-		<!-- content start here -->
+		<?php require 'template/nav.php';?>
 		<div class="main_content">
-			<div class="content_sidebar">				
-
+			<div class="content_sidebar">
 				<?php require 'template/side_bar.php';?>
-
 				<div id="side_bar">
 					<h3>Watches:</h3>
 					<hr/>
@@ -40,11 +34,9 @@
 								$cart_details = array();
 								while($row = $query->fetch_assoc()){
 									$cart_details[] = $row;
-								}
-								
+								}								
 								?>
-								<table align="center" style="margin-top:20px;" width="500px">
-									
+								<table align="center" style="margin-top:20px;" width="500px">	
 										<thead style="font-style:bold">
 											<th>Remove</th>
 											<th>Brand</th>
@@ -54,8 +46,7 @@
 										</thead>
 										<tbody>
 										<?php if(count($cart_details)){
-											foreach ($cart_details as $cart){
-												
+											foreach ($cart_details as $cart){		
 										?>
 											<tr style="height:50px;">
 												<td align="center" valign="middle">
@@ -93,27 +84,26 @@
 											</td>
 										</tr>
 										<tr ></tr><tr></tr>
-												<td></td><td></td><td></td><td align="right"><h3>Total Price :</h3> </td>
-												 <td align="center"><h3>
-
-												 Rs .  <?php 
-													 if(isset($new_price)){
-													 	echo $new_price;
-													 }else{
-													 	echo $total_price['sum(b.product_realprice)']; 												 	
-													 } 
-												 ?>
-												 </h3>
-												 </td>
+											<td></td><td></td><td></td><td align="right"><h3>Total Price :</h3> </td>
+											 <td align="center">
+											 <h3>
+											 Rs .  <?php 
+												 if(isset($new_price)){
+												 	echo $new_price;
+												 }else{
+												 	echo $total_price['sum(b.product_realprice)']; 												 	
+												 } 
+											 ?>
+											 </h3>
+											 </td>
 										</tr>
-										</tbody>									
+									</tbody>									
 								</table>			
 							</div>
 						</div>		
 					</form>			
 				</div>			
 		</div>
-		<!-- content end here -->
 <?php
 	require 'template/footer.php';
 ?>
@@ -139,3 +129,4 @@ if(isset($_POST['checkout'])){
 	$_SESSION['checkPay'] = 1;		
 	echo "<script>window.open('checkout.php','_self');</script>";
 }
+?>

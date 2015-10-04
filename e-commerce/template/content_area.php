@@ -17,7 +17,11 @@
 							$search = $_GET['search'];
 						$product = $conn->query("select * from products where product_keywords ='$search' limit 0,6");	
 					}
-					
+					if(isset($_GET['pro_id'])){
+						if(!empty($_GET['pro_id']))
+							$search = $_GET['pro_id'];
+						$product = $conn->query("select * from products where product_id ='$search'");	
+					}				
 					
 					//------------view the all products------------//
 					if($product->num_rows){
@@ -40,7 +44,7 @@
 							$get_date = $key['date'];
 							$cal_date = strtotime("+7 day", strtotime("$get_date"));
 							$final_date = date("y-m-d", $cal_date);
-							if($pro_month >= $month && $pro_year == $year && $final_date >= $new_time){ ?>
+							if($pro_month <= $month && $pro_year == $year && $final_date >= $new_time){ ?>
 								<img id="new" src="images/new.png" style="float:right;" >
 						<?php	
 							}else{
@@ -64,6 +68,14 @@
 							</p>
 							<p>Reviews : (55 ratings)</p>
 							<p>
+								<?php
+								if(isset($_GET['pro_id'])){
+									echo $key['product_desc'];
+								?>
+									<a href="index.php?add_cart=<?php echo $key['product_id'];?>"><button name="Add To Cart">&nbsp;Buy Now&nbsp;</button></a><br/><br/>
+								<?php
+								}
+								?>
 								<a href="index.php?add_cart=<?php echo $key['product_id'];?>"><button name="Add To Cart">&nbsp;Add To Cart&nbsp;</button></a>
 							</p>
 							<p>

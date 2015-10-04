@@ -18,11 +18,10 @@
 					</ul>
 				</div>
 			</div>
-				<div id="content_area">
-				
-					<?php getPro(); ?>
-				</div>
+			<div id="content_area">				
+				<?php getPro(); ?>
+			</div>
 		</div>
-<?php
-	require 'template/footer.php';
-?>
+		<?php
+			require 'template/footer.php';
+		?>

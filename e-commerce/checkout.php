@@ -6,16 +6,10 @@
 	require 'functions/functions_addCart.php';
 	require 'template/header.php';
 ?>
-		<!-- Nav bar start here -->
 		<?php require 'template/nav.php';?>
-		<!-- Nav bar end here -->
-
-		<!-- content start here -->
 		<div class="main_content">
-			<div class="content_sidebar">				
-
+			<div class="content_sidebar">
 				<?php require 'template/side_bar.php';?>
-
 				<div id="side_bar">
 					<h3>Watches:</h3>
 					<hr/>
@@ -28,8 +22,7 @@
 					</ul>
 				</div>
 			</div>
-				<div id="content_area">
-
+			<div id="content_area">
 				<?php
 				if(isset($_SESSION['customer_email'])){		
 					if(isset($_SESSION['checkPay'])){
@@ -41,10 +34,8 @@
 					include 'customer/customer_login.php';
 				}				
 				?>		
-				</div>				
-			
+			</div>			
 		</div>
-		<!-- content end here -->
-<?php
-	require 'template/footer.php';
-?>
+		<?php
+		require 'template/footer.php';
+		?>

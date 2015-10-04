@@ -3,7 +3,8 @@
 		<h3>Customer Orders </h3>
 		<hr/>
 		<?php 
-		$select = $conn->query("select * from orders");
+		$c_id = $c_data['customer_id'];
+		$select = $conn->query("select * from orders where c_id = '$c_id'");
 		if($select->num_rows>0){
 			$orders = array();
 			while($rows = $select->fetch_assoc()){
@@ -11,8 +12,7 @@
 			}
 		}
 		?>
-		<table align="center" style="margin-top:20px;" width="600px">
-									
+		<table align="center" style="margin-top:20px;" width="600px">				
 				<thead style="font-style:bold">
 					<th>Sl:no</th>
 					<th>Customer Id</th>

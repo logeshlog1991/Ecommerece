@@ -35,7 +35,6 @@
 					?>
 				</div>			
 		</div>
-		<!-- content end here -->
 <?php
 	require 'template/footer.php';
 ?>
