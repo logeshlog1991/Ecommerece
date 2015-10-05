@@ -30,6 +30,7 @@
 							$product_data[] = $data;
 						}
 					}
+					if(count($product_data)){
 					foreach ($product_data as $key) {
 					?>
 					<div id="content_inside">
@@ -52,7 +53,16 @@
 								<img id="new" src="images/new.png" style="float:right;display:none;" >
 						<?php
 							}
-						?>						
+							if($key['product_discount'] >= 25){
+						?>
+							<img id="special" src="images/special.png" style="float:right;" >
+						<?php
+							}else{
+						?>		
+							<img id="special" src="images/special.png" style="float:right;display:none;" >
+						<?php
+						}
+						?>				
 						<h3 style="text-align:center;"><?php echo ucfirst($key['product_title']); ?></h3>
 						<img src="admin_area/product_images/<?php echo $key['product_img1']; ?>" width="190" height="180" />
 						<div id="pro_details">
@@ -85,6 +95,7 @@
 					</div>
 					<?php
 					}
+				}
 					?>
 
 

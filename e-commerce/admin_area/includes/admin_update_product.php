@@ -95,6 +95,12 @@
 					</td>
 				</tr>
 				<tr>
+				<td>Product Date</td>
+					<td>
+						<input placeholder="prdouct_date" type="text" name="product_date" value="<?php echo $product_data['date'];?>" required></td>
+					</td>
+				</tr>
+				<tr>
 					<td>
 						<input type="submit" value="Update_Product" name="update_product"></td>
 					</td>
@@ -122,6 +128,10 @@
 		$product_img1 = $_FILES['product_img1']['name'];
 		$product_img2 = $_FILES['product_img2']['name'];
 		$product_img3 = $_FILES['product_img3']['name'];
+		$product_date = $_POST['product_date'];
+		if(!isset($product_date) || empty($product_date) || $product_date == ''){
+			$product_date = now();
+		}
 
 		$temp_name1 = $_FILES['product_img1']['tmp_name'];
 		$temp_name2 = $_FILES['product_img2']['tmp_name'];
@@ -147,7 +157,7 @@
 
 		//------insert the product details to table----------//
 
-		$insert = $conn->query("update products set product_cat='$product_cat',product_brand='$product_brand',product_title='$product_title',product_price='$product_price',product_discount = '$product_discount',product_realprice = '$product_realprice',product_desc='$product_desc',product_img1='$product_img1',product_img2='$product_img2',product_img3='$product_img1',product_keywords='$product_keyword',date=NOW() where product_id = '$id'");
+		$insert = $conn->query("update products set product_cat='$product_cat',product_brand='$product_brand',product_title='$product_title',product_price='$product_price',product_discount = '$product_discount',product_realprice = '$product_realprice',product_desc='$product_desc',product_img1='$product_img1',product_img2='$product_img2',product_img3='$product_img1',product_keywords='$product_keyword',date='$prdouct_date' where product_id = '$id'");
 		if($insert){
 			echo "update";
 		}else{
