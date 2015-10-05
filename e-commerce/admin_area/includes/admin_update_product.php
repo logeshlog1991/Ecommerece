@@ -127,6 +127,9 @@
 		$temp_name2 = $_FILES['product_img2']['tmp_name'];
 		$temp_name3 = $_FILES['product_img2']['tmp_name'];
 
+		if(!isset($product_img1) || empty($product_img1) || $product_img1 == ''){
+			$product_img1 = $product_data['product_img1'];
+		}
 
 		if($product_discount == 0 || $product_discount == ''){
 			$product_discount = $product_price;

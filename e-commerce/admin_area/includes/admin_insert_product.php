@@ -7,13 +7,12 @@
 				<tr>
 					<td>Product Title</td>
 					<td>
-						<input placeholder="prdouct Title" type="text" name="product_title"></td>
+						<input placeholder="prdouct Title" type="text" name="product_title" required></td>
 					</td>
 				</tr>
 				<tr>
 				<td>Product Cat</td>
-					<td>
-					
+					<td>					
 						<select name="product_cat">
 						<option value="--	">pls select</option>
 						<?php if(!count($cat)){
@@ -32,14 +31,27 @@
 				<tr>
 				<td>Product brand</td>
 					<td>
-						<input placeholder="prdouct Brand" type="text" name="product_brand"></td>
+					<select name="product_brand">
+						<option value="--	">pls select</option>
+						<?php if(!count($brand)){
+									echo "not data in your array";
+							}else{
+								foreach($brand as $cat_row){
+							?>
+									<option value="<?php echo $cat_row['brand_id'];?>"> <?php echo $cat_row['brand_title'];?></option>
+							<?php
+								}
+							}
+						?>						
+						</select>
+						
 					</td>
 				</tr>
 				<tr>
 				<tr>
 				<td>Product price</td>
 					<td>
-						<input placeholder="prdouct price" type="text" name="product_price"></td>
+						<input placeholder="prdouct price" type="text" name="product_price" required></td>
 					</td>
 				</tr>
 				<td>Price discount</td>
@@ -61,24 +73,24 @@
 				<tr>
 				<td>Product img3</td>
 					<td>
-						<input type="file" name="product_img3"></td>
+						<input type="file" name="product_img3" required></td>
 					</td>
 				</tr>
 				<tr>
 				<td>Product Desc</td>
 					<td>
-						<textarea name="product_desc" rows="10" cols="50"></textarea></td>
+						<textarea name="product_desc" rows="10" cols="50" required></textarea></td>
 					</td>
 				</tr>
 				<tr>
 				<td>Product keyword</td>
 					<td>
-						<input placeholder="prdouct_keyword" type="text" name="product_keyword"></td>
+						<input placeholder="prdouct_keyword" type="text" name="product_keyword" required></td>
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<input type="submit" value="Insert_Product" name="insert_product"></td>
+						<input type="submit" value="Insert_Product" name="insert_product" required></td>
 					</td>
 				</tr>
 			</table>

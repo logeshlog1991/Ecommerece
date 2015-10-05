@@ -1,6 +1,7 @@
 <?php
 	require "../database/config.php";
 	require '../functions/functions_cat.php';
+	require '../functions/functions_brands.php';
 ?>
 <!doctype html>
 <html>
